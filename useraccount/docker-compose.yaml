@@ -1,27 +1,26 @@
 version: '2.0'
 
 services: 
-    db:
-      image: mysql:8.0.3
-      restart: always
+    db-mysql:
+      image: mysql:latest
       environment:
-        MYSQL_ROOT_PASSWORD: example
-        MYSQL_DATABASE: example
+        - MYSQL_ROOT_PASSWORD=pat169
+        - MYSQL_DATABASE=rapport
+        - MYSQL_USER=root
+        - MYSQL_PASSWORD=pat169
       ports:
         - "3306:3306"  
 
-    adminer:
-      image: adminer
-      restart: always
+    useraccount-service:
+      image: accountservice:1.0.0
+      depends_on:
+        - db-mysql
       ports:
-        - "8080:8080" 
-        
-    server:
-      image:        openjdk:8
+        -8080:8090
       environment:
-        add:         target/useraccount.jar  useraccount.jar  
-        expose:      8081
-        entrypoint:  ["java","-jar","useraccount.jar"]
-
-        
-      
+        - DATABASE_HOST=demo-mysql
+        - DATABASE_USER=root
+        - DATABASE_PASSWORD=pat169
+        - DATABASE_NAME=rapport
+        - DATABASE_PORT=3306  
+          
