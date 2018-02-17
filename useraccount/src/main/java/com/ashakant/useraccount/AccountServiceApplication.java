@@ -7,11 +7,11 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration
 @SpringBootApplication
-@ComponentScan(basePackages= {"com.dhiyo.account.AccountServiceApplication"})
-@ComponentScan(basePackages= {"com.dhiyo.account.controller"})
-@ComponentScan(basePackages= {"com.dhiyo.account.domain"})
-@ComponentScan(basePackages= {"com.dhiyo.account.repository"})
-@ComponentScan(basePackages= {"com.dhiyo.account.service"})
+@ComponentScan(basePackages= {"com.ashakant.useraccount"})
+@ComponentScan(basePackages= {"com.ashakant.useraccount.controller"})
+@ComponentScan(basePackages= {"com.ashakant.useraccount.domain"})
+@ComponentScan(basePackages= {"com.ashakant.useraccount.repository"})
+@ComponentScan(basePackages= {"com.ashakant.useraccount.service"})
 
 public class AccountServiceApplication {
 	public static void main(String[] args) {
