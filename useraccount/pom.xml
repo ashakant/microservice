@@ -2,20 +2,24 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<groupId>com.ashakant</groupId>
+	<artifactId>useraccount</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>useraccount</name>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.10.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<artifactId>useraccount</artifactId>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<spring-cloud.version>Edgware.SR2</spring-cloud.version>
 	</properties>
-
 
 	<dependencies>
 		<dependency>
@@ -41,21 +45,28 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-		
+
+		<!-- Start of consul discovery configuration -->
 		<dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-consul-all</artifactId>
-            <version>1.3.0.RELEASE</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-consul-config</artifactId>
-            <version>1.3.0.RELEASE</version>
-        </dependency>
-		
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
+		</dependency>
+		<!--  End of consul discovery configuration -->
 	</dependencies>
 
+	<!-- dependencyManagement tag required for consul for other dependencies module -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<!-- End -->
 
 	<build>
 		<plugins>
