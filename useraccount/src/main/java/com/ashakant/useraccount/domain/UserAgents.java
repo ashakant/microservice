@@ -6,7 +6,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -16,9 +15,9 @@ import javax.validation.constraints.NotNull;
 public class UserAgents {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	//@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id")
-	private long id;
+	private String id;
 	
 	@NotNull
 	@Column(name="devicetype")
@@ -34,14 +33,19 @@ public class UserAgents {
 	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "useraccountid", nullable = false)
+	//@JoinColumn(name = "useraccountid", nullable = false)
 	private UserAccount userAccount;
 	
-	public UserAgents(String a_devicetype,String a_platform,String a_version,String a_imei,UserAccount a_UserAccount) {
+	public UserAgents() {
+		super() ;
+	}
+	
+	public UserAgents(String a_id,String a_devicetype,String a_platform,String a_version,String a_UserAccountId) {
+		super() ;
 		this.devicetype=a_devicetype;
 		this.platform=a_platform;
 		this.version=a_version;
-		this.userAccount=a_UserAccount ;
+		this.userAccount=new UserAccount(a_UserAccountId,"","","") ;
 	}
 	
 	public UserAccount getUserAccount() {

@@ -1,11 +1,9 @@
-/Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/controller/DeleteAccountController.java
+/Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/repository/UserAgentsRepository.java
 /Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/domain/UserAgents.java
-/Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/controller/RMVCConfig.java
-/Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/repository/AccountRepository.java
-/Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/controller/ReadAccountController.java
-/Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/controller/CreateAccountController.java
-/Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/controller/LoginAccountController.java
-/Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/controller/UpdateAccountController.java
 /Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/domain/UserAccount.java
+/Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/service/UserAccountService.java
+/Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/controller/UserAgentController.java
+/Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/repository/UserAccountRepository.java
+/Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/service/UserAgentsService.java
 /Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/AccountServiceApplication.java
-/Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/service/AccountService.java
+/Users/ashakant/git/microservice/useraccount/src/main/java/com/ashakant/useraccount/controller/UserAccountController.java

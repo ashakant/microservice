@@ -17,6 +17,11 @@ public class UserAccountController {
 	@Autowired
 	private UserAccountService _userAccountService;
 	
+	/**
+	 * Create New Account
+	 * @param a_UserAccount
+	 * @return
+	 */
 	@RequestMapping(value="/account",method=RequestMethod.POST)
 	public ResponseEntity < ? > createUserAccount(@RequestBody UserAccount a_UserAccount) {
 		if(_userAccountService.isValid(a_UserAccount)) {
@@ -26,18 +31,22 @@ public class UserAccountController {
 		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
 	
-	@RequestMapping(value="/account/{id}",method=RequestMethod.DELETE)
-	public ResponseEntity < ? > deleteUserAccount(@PathVariable Long id) {
-		_userAccountService.deleteAccount(id) ;
-		return ResponseEntity.status(HttpStatus.CREATED).build();
-	}
-	
+	/**
+	 * Read existing account
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(value="/account/{id}",method=RequestMethod.GET)
-	public ResponseEntity < ? >  getUserAccount(@PathVariable Long id) {
-		UserAccount t_UserAccount=_userAccountService.readAccount(id);
+	public ResponseEntity < ? >  getUserAccount(@PathVariable String id) {
+		UserAccount t_UserAccount=_userAccountService.readUserAccount(id);
 		return new ResponseEntity<>(t_UserAccount, HttpStatus.OK);
 	}
 	
+	/**
+	 * Update existing account 
+	 * @param a_UserAccount
+	 * @return
+	 */
 	@RequestMapping(value="/account",method=RequestMethod.PUT)
 	public ResponseEntity < ? > updateUserAccount(@RequestBody UserAccount a_UserAccount) {
 		if(_userAccountService.isValid(a_UserAccount)) {
@@ -47,10 +56,19 @@ public class UserAccountController {
 		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
 	
+	/**
+	 * Delete existing account
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value="/account/{id}",method=RequestMethod.DELETE)
+	public ResponseEntity < ? > deleteUserAccount(@PathVariable String id) {
+		_userAccountService.deleteUserAccount(id) ;
+		return ResponseEntity.status(HttpStatus.CREATED).build();
+	}
+	
 	@RequestMapping("/")
 	public String index() {
 		 return "index";
 	}
-	
-	
 }

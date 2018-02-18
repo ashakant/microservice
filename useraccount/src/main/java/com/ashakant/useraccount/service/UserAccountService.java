@@ -3,18 +3,16 @@ package com.ashakant.useraccount.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.ashakant.useraccount.domain.UserAccount;
-import com.ashakant.useraccount.repository.AccountRepository;
+import com.ashakant.useraccount.repository.UserAccountRepository;
 
 @Service
 public class UserAccountService {
 
 	@Autowired
-	private AccountRepository _accountRepository;
+	private UserAccountRepository _accountRepository;
 
 	public boolean  isValid(UserAccount a_UserAccount) {
 		/**
@@ -23,15 +21,21 @@ public class UserAccountService {
 		return true;
 	}
 	
-	public AccountRepository get_accountRepository() {
+	public UserAccountRepository get_accountRepository() {
 		return _accountRepository;
 	}
 
-	public void set_accountRepository(AccountRepository _accountRepository) {
+	public void set_accountRepository(UserAccountRepository _accountRepository) {
 		this._accountRepository = _accountRepository;
 	}
 	
-	public List<UserAccount> getAllAccounts(){
+	public List<UserAccount> getUserAccountsById(){
+		List<UserAccount> t_UserAccount=new ArrayList<UserAccount>() ;
+		this._accountRepository.findAll().forEach(t_UserAccount::add);
+		return t_UserAccount ;
+	}
+	
+	public List<UserAccount> getAllUserAccounts(){
 		List<UserAccount> t_UserAccount=new ArrayList<UserAccount>() ;
 		this._accountRepository.findAll().forEach(t_UserAccount::add);
 		return t_UserAccount ;
@@ -41,15 +45,17 @@ public class UserAccountService {
 		_accountRepository.save(a_UserAccount) ;
 	}
 	
-	public UserAccount  readAccount(Long a_Id) {
+	public UserAccount  readUserAccount(String a_Id) {
 		return _accountRepository.findOne(a_Id) ;
 	}
 	
-	public UserAccount  updateAccount(UserAccount a_UserAccount) {
+	
+	public UserAccount  updateUserAccount(UserAccount a_UserAccount) {
 		return _accountRepository.save(a_UserAccount) ;
 	}
 	
-	public void  deleteAccount(Long a_Id) {
+	
+	public void  deleteUserAccount(String a_Id) {
 		_accountRepository.delete(a_Id);
 	}
 }

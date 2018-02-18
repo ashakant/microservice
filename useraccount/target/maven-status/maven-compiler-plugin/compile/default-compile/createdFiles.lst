@@ -1,11 +1,9 @@
-com/ashakant/useraccount/controller/RMVCConfig.class
-com/ashakant/useraccount/service/AccountService.class
-com/ashakant/useraccount/controller/ReadAccountController.class
-com/ashakant/useraccount/controller/CreateAccountController.class
-com/ashakant/useraccount/repository/AccountRepository.class
-com/ashakant/useraccount/controller/DeleteAccountController.class
-com/ashakant/useraccount/controller/UpdateAccountController.class
+com/ashakant/useraccount/service/UserAgentsService.class
+com/ashakant/useraccount/service/UserAccountService.class
+com/ashakant/useraccount/controller/UserAccountController.class
+com/ashakant/useraccount/repository/UserAccountRepository.class
+com/ashakant/useraccount/controller/UserAgentController.class
+com/ashakant/useraccount/repository/UserAgentsRepository.class
 com/ashakant/useraccount/domain/UserAccount.class
-com/ashakant/useraccount/controller/LoginAccountController.class
 com/ashakant/useraccount/domain/UserAgents.class
 com/ashakant/useraccount/AccountServiceApplication.class
