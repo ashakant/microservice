@@ -6,6 +6,15 @@ CREATE TABLE IF NOT EXISTS useraccount(
     PRIMARY KEY (id));
     
     
+    
+    CREATE TABLE IF NOT EXISTS useragents(
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    devicetype  VARCHAR(32) NOT NULL,
+    platform  VARCHAR(32) NOT NULL,
+    version VARCHAR(32) NOT NULL,
+    PRIMARY KEY (id));
+    
+    
      useraccount-service:
       image: accountservice:1.0.0
       depends_on:
@@ -18,4 +27,14 @@ CREATE TABLE IF NOT EXISTS useraccount(
         - DATABASE_PASSWORD=pat169
         - DATABASE_NAME=rapport
         - DATABASE_PORT=3306  
+          
+          
+#spring.jpa.hibernate.ddl-auto=none
+#spring.datasource.url = jdbc:mysql://localhost:3306/rapport?useSSL=false
+#spring.datasource.username=root
+#spring.datasource.password=pat169
+#spring.datasource.name=rapport
+#server.port=8090
+
+#spring.jpa.hibernate.naming-strategy=org.hibernate.cfg.DefaultNamingStrategy
           

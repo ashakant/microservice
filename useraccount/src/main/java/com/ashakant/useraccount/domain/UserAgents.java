@@ -32,9 +32,6 @@ public class UserAgents {
 	@Column(name="version")
 	private String 	version;
 	
-	@NotNull
-	@Column(name="imei")
-	private	String	imei;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "useraccountid", nullable = false)
@@ -44,10 +41,8 @@ public class UserAgents {
 		this.devicetype=a_devicetype;
 		this.platform=a_platform;
 		this.version=a_version;
-		this.imei=a_imei;
 		this.userAccount=a_UserAccount ;
 	}
-	
 	
 	public UserAccount getUserAccount() {
 		return userAccount;
@@ -79,12 +74,4 @@ public class UserAgents {
 	public void set_version(String _version) {
 		this.version = _version;
 	}
-	
-	public String get_imei() {
-		return imei;
-	}
-	public void set_imei(String _imei) {
-		this.imei = _imei;
-	}
-	
 }
