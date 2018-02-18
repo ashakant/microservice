@@ -1,5 +1,6 @@
 com/ashakant/useraccount/controller/RMVCConfig.class
 com/ashakant/useraccount/service/AccountService.class
+com/ashakant/useraccount/Config.class
 com/ashakant/useraccount/controller/ReadAccountController.class
 com/ashakant/useraccount/controller/CreateAccountController.class
 com/ashakant/useraccount/repository/AccountRepository.class
