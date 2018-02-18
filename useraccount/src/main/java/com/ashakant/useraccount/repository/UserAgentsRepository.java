@@ -1,12 +1,11 @@
 package com.ashakant.useraccount.repository;
 
-
-import com.ashakant.useraccount.domain.UserAccount;
 import javax.transaction.Transactional;
 import org.springframework.data.repository.CrudRepository;
+import com.ashakant.useraccount.domain.UserAgents;
 
 @Transactional
-public interface UserAccountRepository extends CrudRepository</*Entity*/ UserAccount,
+public interface UserAgentsRepository extends CrudRepository</*Entity*/ UserAgents,
 /*Id , Primary Key of Table must match data types of Primary Key*/Long>{
 	
 	/**
