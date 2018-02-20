@@ -14,7 +14,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-
+/**
+ * Test
+ * @author ashakant
+ *
+ */
 
 @Entity
 @Table(name="useraccounts") 
