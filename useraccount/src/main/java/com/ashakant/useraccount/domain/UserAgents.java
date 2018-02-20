@@ -1,11 +1,11 @@
 package com.ashakant.useraccount.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -15,67 +15,80 @@ import javax.validation.constraints.NotNull;
 public class UserAgents {
 	
 	@Id
-	//@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
-	private String id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private String id; 
 	
+	/**
+	 * browser or mobile
+	 */
 	@NotNull
-	@Column(name="devicetype")
 	private	String	devicetype;
 	
 	@NotNull
-	@Column(name="platform")
-	private	String	platform; //browser , android, ios etc 
+	private	String	platform;  
 	
 	@NotNull
-	@Column(name="version")
-	private String 	version;
-	
+	private String 	osversion;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	//@JoinColumn(name = "useraccountid", nullable = false)
-	private UserAccount userAccount;
+    @JoinColumn(name = "useraccounts_id")
+	private UserAccount useraccount;  
 	
+	
+	public UserAccount getUseraccount() {
+		return useraccount;
+	}
+
+	public void setUseraccount(UserAccount useraccount) {
+		this.useraccount = useraccount;
+	}
+
 	public UserAgents() {
 		super() ;
 	}
 	
-	public UserAgents(String a_id,String a_devicetype,String a_platform,String a_version,String a_UserAccountId) {
+	public UserAgents(String a_devicetype,String a_platform,String a_version) {
 		super() ;
+		
 		this.devicetype=a_devicetype;
 		this.platform=a_platform;
-		this.version=a_version;
-		this.userAccount=new UserAccount(a_UserAccountId,"","","") ;
+		this.osversion=a_version;
 	}
+
 	
-	public UserAccount getUserAccount() {
-		return userAccount;
+	public String getId() {
+		return id;
 	}
-	
-	public void setUserAccount(UserAccount userAccount) {
-		this.userAccount = userAccount;
+
+	public void setId(String id) {
+		this.id = id;
 	}
-	
-	public String get_devicetype() {
+
+	public String getDevicetype() {
 		return devicetype;
 	}
-	
-	public void set_devicetype(String _devicetype) {
-		this.devicetype = _devicetype;
+
+	public void setDevicetype(String devicetype) {
+		this.devicetype = devicetype;
 	}
+
+	/**
+	 * chrome/ie , android, ios etc
+	 */
 	
-	public String get_platform() {
+	public String getPlatform() {
 		return platform;
 	}
-	
-	public void set_platform(String _platform) {
-		this.platform = _platform;
+
+	public void setPlatform(String platform) {
+		this.platform = platform;
 	}
-	
-	public String get_version() {
-		return version;
+
+	public String getOsversion() {
+		return osversion;
 	}
-	public void set_version(String _version) {
-		this.version = _version;
+
+	public void setOsversion(String osversion) {
+		this.osversion = osversion;
 	}
 }
