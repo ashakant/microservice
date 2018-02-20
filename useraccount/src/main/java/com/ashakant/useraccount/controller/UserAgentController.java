@@ -24,7 +24,7 @@ public class UserAgentController {
 	 * @param a_UserAgents
 	 * @return
 	 */
-	@RequestMapping(value="/account/useragent{accountId}",method=RequestMethod.POST)
+	@RequestMapping(value="/useragent",method=RequestMethod.POST)
 	public ResponseEntity < ? > createUserAgent(@RequestBody UserAgents a_UserAgents) {
 		if(_userAgentsService.isValid(a_UserAgents)) {
 			_userAgentsService.createUserAgent(a_UserAgents) ;
@@ -55,7 +55,7 @@ public class UserAgentController {
 	@RequestMapping(value="/account/useragents/{accountId}",method=RequestMethod.PUT)
 	public ResponseEntity < ? > updateUserAgent(@RequestBody UserAgents a_UserAgents) {
 		if(_userAgentsService.isValid(a_UserAgents)) {
-			_userAgentsService.createUserAgent(a_UserAgents);
+			//_userAgentsService.createUserAgent(a_UserAgents);
 			return ResponseEntity.status(HttpStatus.CREATED).build();
 		}
 		return ResponseEntity.status(HttpStatus.CREATED).build();
