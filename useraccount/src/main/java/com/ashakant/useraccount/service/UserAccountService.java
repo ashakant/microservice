@@ -21,27 +21,29 @@ public class UserAccountService {
 		return true;
 	}
 	
-	public UserAccountRepository get_accountRepository() {
-		return _accountRepository;
-	}
-
-	public void set_accountRepository(UserAccountRepository _accountRepository) {
-		this._accountRepository = _accountRepository;
+	public UserAccount getUserAccountsByAadharId(String  a_AadharId){
+		return this._accountRepository.findOne(a_AadharId);
 	}
 	
-	public List<UserAccount> getUserAccountsById(){
-		List<UserAccount> t_UserAccount=new ArrayList<UserAccount>() ;
-		this._accountRepository.findAll().forEach(t_UserAccount::add);
-		return t_UserAccount ;
-	}
-	
+	/**
+	 * Get
+	 * @return
+	 */
 	public List<UserAccount> getAllUserAccounts(){
 		List<UserAccount> t_UserAccount=new ArrayList<UserAccount>() ;
 		this._accountRepository.findAll().forEach(t_UserAccount::add);
 		return t_UserAccount ;
 	}
-	
+	/**
+	 * Create
+	 * @param a_UserAccount
+	 */
 	public void  createAccount(UserAccount a_UserAccount) {
+		
+		
+		
+		
+		
 		_accountRepository.save(a_UserAccount) ;
 	}
 	
@@ -49,11 +51,9 @@ public class UserAccountService {
 		return _accountRepository.findOne(a_Id) ;
 	}
 	
-	
 	public UserAccount  updateUserAccount(UserAccount a_UserAccount) {
 		return _accountRepository.save(a_UserAccount) ;
 	}
-	
 	
 	public void  deleteUserAccount(String a_Id) {
 		_accountRepository.delete(a_Id);
